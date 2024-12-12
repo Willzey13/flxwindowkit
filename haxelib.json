@@ -1,6 +1,6 @@
 {
 	"name": "flxwindowkit",
-	"url": "https://github.com/seuusuario/FlxWindow",
+	"url": "https://github.com/Willzey13/flxwindowkit",
 	"license": "MIT",
 	"tags": ["window", "flixel", "gui"],
 	"description": "A simple window management library for Haxe and Flixel.",
