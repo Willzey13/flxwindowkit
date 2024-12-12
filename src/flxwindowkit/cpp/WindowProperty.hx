@@ -74,7 +74,7 @@ class Border
 			if (['dark', 'escuro', 'preto', 'black'].contains(color))
 			{
 				// Calls a method to apply the dark mode to the window border (black)
-				windowCppUtil.setWindowColorMode(true);
+				WindowCppUtil.setWindowColorMode(true);
 				// Outputs a message indicating that the border color has been changed to black
 				trace('Ready the color of the game window border has been changed to Black!!');
 			}
@@ -82,7 +82,7 @@ class Border
 			else if (['white', 'light', 'branco', 'claro'].contains(color))
 			{
 				// Calls a method to apply the light mode to the window border (white)
-				windowCppUtil.setWindowColorMode(true);
+				WindowCppUtil.setWindowColorMode(true);
 				// Outputs a message indicating that the border color has been changed to white
 				trace('Ready the color of the game window border has been changed to White!!');
 			}
@@ -90,7 +90,7 @@ class Border
 	}
 }
 
-class windowCppUtil
+class WindowCppUtil
 {
 	/**
 	 * This method sets the color mode for the window's border. 
