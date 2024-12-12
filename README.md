@@ -1,6 +1,6 @@
 # FlxWindowKit
 
-[![FlxWindowKit Logo](https://raw.githubusercontent.com/Willzey13/flxwindowkit/images/icon.png)](https://github.com/Willzey13/flxwindowkit)
+[![FlxWindowKit Logo](https://github.com/Willzey13/flxwindowkit/blob/main/images/icon.png)](https://github.com/Willzey13/flxwindowkit)
 
 **FlxWindowKit** is a lightweight, easy-to-use library for creating and managing windows and GUI elements in Haxe projects, particularly those built with **Flixel**. It provides a flexible way to integrate windows, modals, and panels into your games and applications.
 
