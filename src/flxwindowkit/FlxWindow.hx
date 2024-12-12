@@ -12,7 +12,7 @@ class FlxWindow
     public var border:Border;
 
     // Construtor da janela
-    public function new(width:Int, height:Int, title:String) 
+    public function new(?width:Int = 800, ?height:Int = 600, ?title:String = 'Your Game') 
     {
 		// super();
         border = new Border();
