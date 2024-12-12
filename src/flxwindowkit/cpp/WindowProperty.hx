@@ -19,7 +19,7 @@ package cpp;
 
 class Border
 {
-	public var color:String = 'dark';
+	public var color:String = 'white';
 	public function setBorderColor(color:String):Void
 	{
 		this.color = color;
