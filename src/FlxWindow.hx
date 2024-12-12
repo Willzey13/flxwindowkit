@@ -1,6 +1,6 @@
 // flxwindowkit/Window.hx
 
-package;
+package src;
 
 class FlxWindow
 {
