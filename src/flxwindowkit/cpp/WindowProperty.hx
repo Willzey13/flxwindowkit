@@ -32,6 +32,22 @@ class Border
 	public var color:String = 'white';
 
 	/**
+	 * The `new()` function is the constructor for the `Border` class. 
+	 * In this case, it is intentionally left empty, as no specific initialization logic 
+	 * is required when creating an instance of `Border`. However, this constructor 
+	 * is essential as it defines how a new instance of `Border` is created.
+	 * 
+	 * While this constructor does not contain any custom logic, it still provides the 
+	 * ability to create an instance of `Border` with its default state. The `color` variable 
+	 * is automatically initialized to `'white'` as specified in the class declaration, 
+	 * so no further setup is needed when a `Border` object is instantiated.
+	 * 
+	 * This constructor can be expanded in the future if additional initialization 
+	 * logic is required for new `Border` instances.
+	 */
+	public function new() {} 
+
+	/**
 	 * This method is used to set the border color of the window. 
 	 * It takes a string `color` as input, and depending on the value of 
 	 * `color`, it will call platform-specific functions to modify the window's border.

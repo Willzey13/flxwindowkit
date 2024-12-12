@@ -5,6 +5,7 @@
 	"tags": ["window", "flixel", "gui"],
 	"description": "A simple window management library for Haxe and Flixel.",
 	"version": "1.0.0",
+	"contributors": ["Willzey"],
 	"classPath": "src/",
 	"dependencies": {}
  }

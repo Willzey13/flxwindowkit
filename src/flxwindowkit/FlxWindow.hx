@@ -15,6 +15,7 @@ class FlxWindow
     public function new(width:Int, height:Int, title:String) 
     {
 		// super();
+        border = new Border();
         this.width = width;
         this.height = height;
         this.title = title;
