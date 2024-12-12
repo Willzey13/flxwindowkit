@@ -23,9 +23,9 @@ class FlxWindow
     public function setColorBorder(color:String = '')
     {
         if (['', ' '].contains(color))
-            return border.setBorderColor('white');
+            border.setBorderColor('white');
         else
-            return border.setBorderColor(color);
+            border.setBorderColor(color);
     }
 
     // Método para exibir informações da janela

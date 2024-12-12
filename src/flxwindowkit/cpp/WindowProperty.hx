@@ -22,21 +22,6 @@ package flxwindowkit.cpp;
  * Copyright © 2024 Willzey. All rights reserved.
  */
 
-#if windows
-@:buildXml('
-	<target id="haxe">
-		<lib name="dwmapi.lib" if="windows" />
-	</target>
-	')
-	@:cppFileCode('
-		#include <Windows.h>
-		#include <dwmapi.h>
-		#include <winuser.h>
-	')
-#elseif linux
-	@:cppFileCode("#include <stdio.h>")
-#end
-
 class Border
 {
 	/**
@@ -89,6 +74,21 @@ class Border
 		#end
 	}
 }
+
+#if windows
+@:buildXml('
+	<target id="haxe">
+		<lib name="dwmapi.lib" if="windows" />
+	</target>
+	')
+	@:cppFileCode('
+		#include <Windows.h>
+		#include <dwmapi.h>
+		#include <winuser.h>
+	')
+#elseif linux
+	@:cppFileCode("#include <stdio.h>")
+#end
 
 class WindowCppUtil
 {
