@@ -11,7 +11,7 @@ class FlxWindow
     // Construtor da janela
     public function new(width:Int, height:Int, title:String) 
     {
-		super();
+		// super();
         this.width = width;
         this.height = height;
         this.title = title;
