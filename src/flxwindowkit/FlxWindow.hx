@@ -2,14 +2,16 @@
 
 package flxwindowkit;
 
-class Window 
+class FlxWindow
 {
     public var width:Int;
     public var height:Int;
     public var title:String;
 
     // Construtor da janela
-    public function new(width:Int, height:Int, title:String) {
+    public function new(width:Int, height:Int, title:String) 
+    {
+		super();
         this.width = width;
         this.height = height;
         this.title = title;
