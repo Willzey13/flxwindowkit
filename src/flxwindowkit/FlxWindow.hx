@@ -2,6 +2,7 @@
 
 package flxwindowkit;
 
+import openfl.Lib;
 import flxwindowkit.cpp.WindowProperty.Border;
 
 class FlxWindow
