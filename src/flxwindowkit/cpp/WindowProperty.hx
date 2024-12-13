@@ -1,5 +1,7 @@
 package flxwindowkit.cpp;
 
+import flxwindow.*;
+
 /**
  * This code allows for dynamically changing the border color of a window. It provides a simple and efficient method 
  * to modify the appearance of a window's border using Haxe. The code is designed to be used in Haxe projects and 
@@ -67,7 +69,7 @@ class Border
 		// Updates the `color` variable with the chosen color
 		this.color = color;
 		// Outputs a message indicating the chosen color is being processed
-		trace('Processing the color of the chosen border...');
+		Utils.coloredTrace('Processing the color of the chosen border...', 'magenta');
 		
 		// Check the `color` and apply the appropriate border color change based on the value
 		#if cpp
@@ -77,7 +79,7 @@ class Border
 				// Calls a method to apply the dark mode to the window border (black)
 				WindowCppUtil.setWindowColorMode(true);
 				// Outputs a message indicating that the border color has been changed to black
-				trace('Ready the color of the game window border has been changed to Black!!');
+				Utils.coloredTrace('Ready the color of the game window border has been changed to Black!!', 'green');
 			}
 			// If color is 'white', 'light', 'branco' or 'claro', set the window border to white
 			else if (['white', 'light', 'branco', 'claro'].contains(color))
@@ -85,7 +87,7 @@ class Border
 				// Calls a method to apply the light mode to the window border (white)
 				WindowCppUtil.setWindowColorMode(true);
 				// Outputs a message indicating that the border color has been changed to white
-				trace('Ready the color of the game window border has been changed to White!!');
+				Utils.coloredTrace('Ready the color of the game window border has been changed to White!!', 'green');
 			}
 		#end
 	}

@@ -11,7 +11,6 @@ class FlxWindow
     public var title:String;
     public var border:Border;
 
-    // Construtor da janela
     public function new(?width:Int = 800, ?height:Int = 600, ?title:String = 'Your Game') 
     {
 		// super();
@@ -29,12 +28,11 @@ class FlxWindow
             border.setBorderColor(color);
     }
 
-    // Método para exibir informações da janela
     public function showInfo():Void 
     {
-        trace("Window Info:");
-        trace("Title: " + this.title);
-        trace("Width: " + this.width);
-        trace("Height: " + this.height);
+        Utils.coloredTrace("Window Info:",          'yellow');
+        Utils.coloredTrace("Title: " + this.title,  'green');
+        Utils.coloredTrace("Width: " + this.width,  'green');
+        Utils.coloredTrace("Height: " + this.height,'green');
     }
 }
