@@ -12,7 +12,7 @@ To get started with **FlxWindowKit**, check out the following links:
 - [Examples and Demos](#) - Explore some example projects to see **FlxWindowKit** in action.
 - [API Reference](#) - Check the API documentation for detailed class and method information.
 
-If you want to contribute to the project or report an issue, feel free to read the [CONTRIBUTING.md](#).
+If you want to contribute to the project or report an issue, feel free to read the [CONTRIBUTING.md](https://github.com/Willzey13/flxwindowkit/blob/main/CHANGELOG.md).
 
 ### Features
 
