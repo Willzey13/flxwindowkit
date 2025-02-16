@@ -1,6 +1,7 @@
 package flxwindowkit.cpp;
 
 import flxwindow.*;
+import flixel.FlxG;
 
 /**
  * This code allows for dynamically changing the border color of a window. It provides a simple and efficient method 
@@ -111,9 +112,9 @@ class Border
 class WindowCppUtil
 {
 	/**
-	 * This method sets the color mode for the window's border. 
-	 * It accepts a boolean parameter `isDark`, which determines whether the border 
-	 * will be set to dark or light mode. 
+	 * This method sets the color mode for the window's border.
+	 * It accepts a boolean parameter `isDark`, which determines whether the border
+	 * will be set to dark or light mode.
 	 * 
 	 * If `isDark` is true, it applies a dark border color (black). If false, it applies a light border (white).
 	 * This function is platform-specific and will only run on Windows.
@@ -134,6 +135,96 @@ class WindowCppUtil
 				// Updates the window with the new color setting
 				UpdateWindow(window);
 			', isDark); 
+		#end
+	}
+
+	/**
+	 * Call this function for changing the value alpha of window of windows
+	 * @param a 
+	 */
+	public static function setAlpha(a:Float)
+	{
+		#if windows
+			// Garante que o valor de a esteja no intervalo [0.0, 1.0]
+			var alpha = Math.min(1.0, Math.max(0.0, a));
+			
+			untyped __cpp__('
+				// Obtém a janela ativa
+				HWND hwnd = GetActiveWindow();
+				if (hwnd != nullptr)
+				{
+					// Define o estilo da janela para permitir transparência
+					LONG_PTR style = GetWindowLongPtr(hwnd, GWL_EXSTYLE);
+					SetWindowLongPtr(hwnd, GWL_EXSTYLE, style | WS_EX_LAYERED);
+	
+					// Define a transparência da janela
+					BYTE bAlpha = (BYTE)(alpha * 255); // Converte α para o intervalo [0, 255]
+					SetLayeredWindowAttributes(hwnd, 0, bAlpha, LWA_ALPHA);
+				}
+			', alpha);
+		#end
+	}
+
+	public static function setWidth(width:Int):Void
+	{
+		#if windows
+			untyped __cpp__('
+				HWND hwnd = GetActiveWindow();
+				if (hwnd != nullptr) {
+					RECT rect;
+					GetWindowRect(hwnd, &rect);
+					int newWidth = {0};
+					int height = rect.bottom - rect.top;
+					SetWindowPos(hwnd, NULL, rect.left, rect.top, newWidth, height, SWP_NOZORDER | SWP_NOMOVE);
+				}
+			', width);
+		#end
+	}
+
+	public static function animateWindowResize(initialWidth:Float, initialHeight:Float, finalWidth:Float, finalHeight:Float, duration:Float):Void
+	{
+		#if windows
+		var steps:Int = Math.ceil(duration * 60);
+		var widthStep:Float = (finalWidth - initialWidth) / steps;
+		var heightStep:Float = (finalHeight - initialHeight) / steps;
+		var currentWidth:Float = initialWidth;
+		var currentHeight:Float = initialHeight;
+		var screenWidth:Int = FlxG.width;
+		var screenHeight:Int = FlxG.height;
+	
+		for (i in 0...steps)
+		{
+			currentWidth += widthStep;
+			currentHeight += heightStep;
+	
+			var x:Int = Math.round((screenWidth - currentWidth) / 2) + 100;
+			var y:Int = Math.round((screenHeight - currentHeight) / 2) + 70;
+	
+			untyped __cpp__('
+				HWND hwnd = GetActiveWindow();
+				if (hwnd != nullptr) {
+					SetWindowPos(hwnd, NULL, {0}, {1}, {2}, {3}, SWP_NOZORDER);
+				}
+			', x, y, currentWidth, currentHeight);
+			Sys.sleep(1 / 60);
+		}
+		#end
+	}
+	
+
+	public static function setHeight(height:Int):Void
+	{
+		#if windows
+			untyped __cpp__('
+				HWND hwnd = GetActiveWindow();
+				if (hwnd != nullptr) {
+					RECT rect;
+					GetWindowRect(hwnd, &rect);
+					int newHeight = {0};
+					int width = rect.right - rect.left;
+					SetWindowPos(hwnd, NULL, rect.left, rect.top, width, newHeight, SWP_NOZORDER | SWP_NOMOVE);
+				}
+			', height);
 		#end
 	}
 }
